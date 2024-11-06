@@ -13,9 +13,7 @@ export async function POST(request: Request) {
     // 실제 구현에서는 데이터베이스에 저장
     return NextResponse.json(playerProfile, { status: 201 });
   } catch (error) {
-    return NextResponse.json(
-      { error: '선수 등록에 실패했습니다.' },
-      { status: 500 }
-    );
+    console.error('Error fetching players:', error);
+    return new Response('Internal Server Error', { status: 500 });
   }
 } 
