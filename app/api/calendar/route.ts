@@ -32,7 +32,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const _event = await request.json();
     return NextResponse.json({ message: '이벤트가 생성되었습니다.' });
   } catch (_error: unknown) {
     console.error('Error:', _error);

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { MatchingRequest } from '@/types/matching';
 
 export default function MatchingForm({ onSubmit }: { onSubmit: (data: Omit<MatchingRequest, 'id' | 'status' | 'createdAt'>) => void }) {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     playerId: '',
     location: '',
     playerCount: 1,

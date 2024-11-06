@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { MatchingRequest } from '@/types/matching';
 
 export default function MatchingStatus({ 

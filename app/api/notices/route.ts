@@ -42,6 +42,7 @@ export async function GET() {
     // 실제 구현에서는 데이터베이스에서 데이터를 가져옵니다
     return NextResponse.json(mockNotices);
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: '공지사항을 불러오는데 실패했습니다.' },
       { status: 500 }
@@ -58,6 +59,7 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: '공지사항 생성에 실패했습니다.' },
       { status: 500 }

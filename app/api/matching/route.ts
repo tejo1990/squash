@@ -14,6 +14,7 @@ export async function POST(request: Request) {
     
     return NextResponse.json(matchingRequest, { status: 201 });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: '매칭 요청 생성에 실패했습니다.' },
       { status: 500 }
