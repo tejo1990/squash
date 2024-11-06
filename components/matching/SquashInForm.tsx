@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { PlayerProfile, TimeSlot } from '@/types/matching';
 
+type SkillLevel = '상급' | '중상급' | '중급' | '초중급' | '초급' | '상관없음';
+type PlayStyle = '전투적/공격적' | '수비적/안정적' | '기술적/전략적' | '체력 중심적';
+type GameStyle = '랠리 위주' | '숏볼/킬샷 위주' | '실제 시합 방식' | '연습 위주';
+type PreferredAtmosphere = '진지한 분위기' | '친목 위주' | '체력 운동 위주' | '기술 향상 위주';
+
 export default function SquashInForm({ 
   onSubmit 
 }: { 
@@ -11,10 +16,10 @@ export default function SquashInForm({
   const [formData, setFormData] = useState({
     nickname: '',
     location: '',
-    skillLevel: '상관없음' as const,
-    playStyle: '전투적/공격적' as const,
-    gameStyle: '랠리 위주' as const,
-    preferredAtmosphere: '친목 위주' as const,
+    skillLevel: '상관없음' as SkillLevel,
+    playStyle: '전투적/공격적' as PlayStyle,
+    gameStyle: '랠리 위주' as GameStyle,
+    preferredAtmosphere: '친목 위주' as PreferredAtmosphere,
     availableTimeSlots: [] as TimeSlot[]
   });
 
@@ -53,7 +58,7 @@ export default function SquashInForm({
         <label className="block text-sm font-medium text-gray-700">실력 수준</label>
         <select
           value={formData.skillLevel}
-          onChange={(e) => setFormData({...formData, skillLevel: e.target.value as any})}
+          onChange={(e) => setFormData({...formData, skillLevel: e.target.value as SkillLevel})}
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
         >
           <option value="상급">상급 (대회 출전 경험자)</option>
@@ -70,7 +75,7 @@ export default function SquashInForm({
         <label className="block text-sm font-medium text-gray-700">플레이 스타일</label>
         <select
           value={formData.playStyle}
-          onChange={(e) => setFormData({...formData, playStyle: e.target.value as any})}
+          onChange={(e) => setFormData({...formData, playStyle: e.target.value as PlayStyle})}
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
         >
           <option value="전투적/공격적">전투적/공격적</option>
@@ -85,7 +90,7 @@ export default function SquashInForm({
         <label className="block text-sm font-medium text-gray-700">게임 성향</label>
         <select
           value={formData.gameStyle}
-          onChange={(e) => setFormData({...formData, gameStyle: e.target.value as any})}
+          onChange={(e) => setFormData({...formData, gameStyle: e.target.value as GameStyle})}
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
         >
           <option value="랠리 위주">랠리 위주</option>
@@ -100,7 +105,7 @@ export default function SquashInForm({
         <label className="block text-sm font-medium text-gray-700">선호하는 매칭 분위기</label>
         <select
           value={formData.preferredAtmosphere}
-          onChange={(e) => setFormData({...formData, preferredAtmosphere: e.target.value as any})}
+          onChange={(e) => setFormData({...formData, preferredAtmosphere: e.target.value as PreferredAtmosphere})}
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
         >
           <option value="진지한 분위기">진지한 분위기</option>

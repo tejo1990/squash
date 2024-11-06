@@ -32,12 +32,12 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const event = await request.json();
-    // 실제 구현에서는 데이터베이스에 이벤트를 저장합니다
+    const _event = await request.json();
     return NextResponse.json({ message: '이벤트가 생성되었습니다.' });
-  } catch (error) {
+  } catch (_error: unknown) {
+    console.error('Error:', _error);
     return NextResponse.json(
-      { error: '이벤트 생성에 실패했습니다.' },
+      { error: '오류가 발생했습니다.' },
       { status: 500 }
     );
   }
